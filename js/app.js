@@ -6,33 +6,49 @@ const images = [
         city: 'Rostov-on-Don <br>LCD admiral',
         apartmentArea: '81 m2',
         repairTime: '3.5 months',
-        repairCost: 'Upon request'
+        repairCost: 'Upon request',
+        link: 'Rostov-on-Don, Admiral'
     },
     {
         src: '../img/project-two.png',
         city: 'Sochi Thieves',
         apartmentArea: '105 m2',
         repairTime: '4 months',
-        repairCost: 'Upon request'
+        repairCost: 'Upon request',
+        link: 'Sochi Thieves'
     },
     {
         src: '../img/project-three.png',
         city: 'Rostov-on-Don Patriotic',
         apartmentArea: '93 m2',
         repairTime: '3 months',
-        repairCost: 'Upon request'
+        repairCost: 'Upon request',
+        link: 'Rostov-on-Don Patriotic'
     }
 ]
 
 function initSlider() {
+    if(!images || !images.length) return
+
     let sliderImages = document.querySelector('.projects__slider-img')
-    let sliderInfo = document.querySelectorAll('.projects__specification-item')
     let sliderArrow = document.querySelectorAll('.projects__arrow')
+    let sliderArrowTel = document.querySelectorAll('.area-arrow')
     let sliderDots = document.querySelector('.projects__circle')
+    let sliderCity = document.querySelector('.city')
+    let sliderApartment = document.querySelector('.apartment')
+    let sliderTime = document.querySelector('.time')
+    let sliderCost = document.querySelector('.cost')
+    let sliderCityTel = document.querySelector('.city--tel')
+    let sliderApartmentTel = document.querySelector('.apartment--tel')
+    let sliderTimeTel = document.querySelector('.time--tel')
+    let sliderCostTel = document.querySelector('.cost--tel')
+    let sliderLink = document.querySelector('.projects__slider-elements')
 
     initImages()
     initInfo()
+    initLink()
     initArrow()
+    initArrowTel()
     initDots()
 
     function initImages() {
@@ -49,26 +65,52 @@ function initSlider() {
             let elementTime = `<p class="projects__specification-text n${index} ${index === 0 ? 'active' : ''}" data-index='${index}'>${elem.repairTime}</p>`
             let elementCost = `<p class="projects__specification-text n${index} ${index === 0 ? 'active' : ''}" data-index='${index}'>${elem.repairCost}</p>`
 
-            sliderInfo.forEach((info) => {
-                if (info.classList.contains('city')) {
-                    info.innerHTML += elementCity
-                } else if (info.classList.contains('apartment')) {
-                    info.innerHTML += elementApartment
-                } else if (info.classList.contains('time')) {
-                    info.innerHTML += elementTime
-                } else {
-                    info.innerHTML += elementCost
-                }
+            sliderCity.innerHTML += elementCity
+            sliderApartment.innerHTML += elementApartment
+            sliderTime.innerHTML += elementTime
+            sliderCost.innerHTML += elementCost
+
+            sliderCityTel.innerHTML += elementCity
+            sliderApartmentTel.innerHTML += elementApartment
+            sliderTimeTel.innerHTML += elementTime
+            sliderCostTel.innerHTML += elementCost
+        })
+    }
+
+    function initLink() {
+        images.forEach((image, index) => {
+            let link = `<a class="projects__element n${index} ${index === 0 ? 'active' : ''}" href="#" data-index='${index}'>${image.link}</a>`
+            sliderLink.innerHTML += link
+        })
+        sliderLink.querySelectorAll('.projects__element').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault()
+                moveSlider(this.dataset.index)
             })
         })
     }
 
     function initArrow() {
         sliderArrow.forEach(arrow => {
-            arrow.addEventListener('click', function () {
+            arrow.addEventListener('click', function() {
                 let indexNumber = +sliderImages.querySelector('.active').dataset.index
                 let nextNumber
                 if (arrow.classList.contains('left-arrow')) {
+                    nextNumber = indexNumber === 0 ? images.length - 1 : indexNumber - 1
+                } else {
+                    nextNumber = indexNumber === images.length - 1 ? 0 : indexNumber + 1
+                }
+                moveSlider(nextNumber)
+            })
+        })
+    }
+
+    function initArrowTel() {
+        sliderArrowTel.forEach(arrow => {
+            arrow.addEventListener('click', function() {
+                let indexNumber = +sliderImages.querySelector('.active').dataset.index
+                let nextNumber
+                if (arrow.classList.contains('area-arrow--left')) {
                     nextNumber = indexNumber === 0 ? images.length - 1 : indexNumber - 1
                 } else {
                     nextNumber = indexNumber === images.length - 1 ? 0 : indexNumber + 1
@@ -97,8 +139,32 @@ function initSlider() {
         sliderDots.querySelector('.active').classList.remove('active')
         sliderDots.querySelector('.n' + numb).classList.add('active')
 
-        sliderInfo.querySelector('active').classList.remove('active')
-        sliderInfo.querySelector('.n' + numb).classList.add('active')
+        sliderCity.querySelector('.active').classList.remove('active')
+        sliderCity.querySelector('.n' + numb).classList.add('active')
+
+        sliderApartment.querySelector('.active').classList.remove('active')
+        sliderApartment.querySelector('.n' + numb).classList.add('active')
+
+        sliderTime.querySelector('.active').classList.remove('active')
+        sliderTime.querySelector('.n' + numb).classList.add('active')
+
+        sliderCost.querySelector('.active').classList.remove('active')
+        sliderCost.querySelector('.n' + numb).classList.add('active')
+
+        sliderCityTel.querySelector('.active').classList.remove('active')
+        sliderCityTel.querySelector('.n' + numb).classList.add('active')
+
+        sliderApartmentTel.querySelector('.active').classList.remove('active')
+        sliderApartmentTel.querySelector('.n' + numb).classList.add('active')
+
+        sliderTimeTel.querySelector('.active').classList.remove('active')
+        sliderTimeTel.querySelector('.n' + numb).classList.add('active')
+
+        sliderCostTel.querySelector('.active').classList.remove('active')
+        sliderCostTel.querySelector('.n' + numb).classList.add('active')
+
+        sliderLink.querySelector('.active').classList.remove('active')
+        sliderLink.querySelector('.n' + numb).classList.add('active')
     }
 }
 

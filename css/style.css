@@ -606,11 +606,18 @@ body {
 }
 
 .projects__specification-text {
-    font-size: 0;
+    opacity: 0;
+    font-size: 13px;
+
+    position: absolute;
+    top: 0;
+    transition: opacity .5s linear;
 }
 
 .projects__specification-text.active {
-    font-size: 13px;
+    opacity: 1;
+
+    position: relative;
 }
 
 .projects__switch {
@@ -696,14 +703,13 @@ body {
     color: #E3B873;
 }
 
-.projects__element-active {
+.projects__element.active {
     color: #E3B873;
 }
 
-.projects__element-active::after {
+.projects__element.active::after {
     content: "";
     display: block;
-    width: 194px;
     height: 1px;
     background-color: #E3B873;
     margin-top: 6px;
