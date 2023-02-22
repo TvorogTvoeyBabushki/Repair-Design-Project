@@ -2,7 +2,7 @@
 
 const images = [
     {
-        src: '/img/project-one.png',
+        src: '../img/project-one.png',
         city: 'Rostov-on-Don <br>LCD admiral',
         apartmentArea: '81 m2',
         repairTime: '3.5 months',
@@ -10,7 +10,7 @@ const images = [
         link: 'Rostov-on-Don, Admiral'
     },
     {
-        src: '/img/project-two.png',
+        src: '../img/project-two.png',
         city: 'Sochi Thieves',
         apartmentArea: '105 m2',
         repairTime: '4 months',
@@ -18,7 +18,7 @@ const images = [
         link: 'Sochi Thieves'
     },
     {
-        src: '/img/project-three.png',
+        src: '../img/project-three.png',
         city: 'Rostov-on-Don Patriotic',
         apartmentArea: '93 m2',
         repairTime: '3 months',
