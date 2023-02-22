@@ -548,6 +548,10 @@ body {
     padding-bottom: 416px;
 }
 
+.projects__info {
+    display: none;
+}
+
 .projects__item-left {
     margin-right: 40px;
     width: 40%;
@@ -1789,14 +1793,24 @@ body {
         padding-top: 50px;
     }
 
+    .projects__info {
+        display: block;
+        width: 70%;
+        text-align: center;
+    }
+
     .projects__item-left {
         -ms-flex-item-align: auto;
             -ms-grid-row-align: auto;
             align-self: auto;
-        width: 70%;
+        width: 100%;
         margin: 0;
 
-        text-align: center;
+        order: 1;
+    }
+
+    .projects__info-left {
+        display: none;
     }
 
     .projects__text {
@@ -1804,7 +1818,11 @@ body {
     }
 
     .projects__specification {
-        display: none;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 30px 0;
+
+        width: 70%;
+        margin: 40px 0 0;
     }
 
     .projects__switch {
@@ -1827,17 +1845,6 @@ body {
 
     .projects__img {
         max-width: 100%;
-    }
-
-    .projects__specification--right {
-        display: -ms-grid;
-        display: grid;
-        -ms-grid-columns: 1fr 0 1fr;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 30px 0;
-
-        margin: 40px 0 0;
-        width: 70%;
     }
 
     /* AREA-ARROW */
@@ -2156,8 +2163,16 @@ body {
 
     /* PROJECTS */
 
-    .projects__specification--right {
+    .projects__text {
+        margin-bottom: 50px;
+    }
+
+    .projects__specification {
         width: 100%;
+    }
+
+    .projects__slider-elements {
+        display: none;
     }
 
     /* VIDEO */
@@ -2361,10 +2376,6 @@ body {
 
     .projects__inner {
         margin: 0;
-    }
-
-    .projects__slider-elements {
-        display: none;
     }
 
     /* VIDEO */
@@ -2607,7 +2618,7 @@ body {
         padding-bottom: 400px;
     }
 
-    .projects__item-left {
+    .projects__info {
         width: 100%;
     }
 
@@ -2618,8 +2629,6 @@ body {
     }
 
     .projects__text {
-        margin-bottom: 100px;
-
         font-size: 13px;
     }
 
@@ -2808,8 +2817,6 @@ body {
     }
 
     .projects__text {
-        margin-bottom: 80px;
-
         font-size: 11px;
     }
 

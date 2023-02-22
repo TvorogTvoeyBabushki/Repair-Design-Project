@@ -38,10 +38,6 @@ function initSlider() {
     let sliderApartment = document.querySelector('.apartment')
     let sliderTime = document.querySelector('.time')
     let sliderCost = document.querySelector('.cost')
-    let sliderCityTel = document.querySelector('.city--tel')
-    let sliderApartmentTel = document.querySelector('.apartment--tel')
-    let sliderTimeTel = document.querySelector('.time--tel')
-    let sliderCostTel = document.querySelector('.cost--tel')
     let sliderLink = document.querySelector('.projects__slider-elements')
 
     initImages()
@@ -69,11 +65,6 @@ function initSlider() {
             sliderApartment.innerHTML += elementApartment
             sliderTime.innerHTML += elementTime
             sliderCost.innerHTML += elementCost
-
-            sliderCityTel.innerHTML += elementCity
-            sliderApartmentTel.innerHTML += elementApartment
-            sliderTimeTel.innerHTML += elementTime
-            sliderCostTel.innerHTML += elementCost
         })
     }
 
@@ -150,18 +141,6 @@ function initSlider() {
 
         sliderCost.querySelector('.active').classList.remove('active')
         sliderCost.querySelector('.n' + numb).classList.add('active')
-
-        sliderCityTel.querySelector('.active').classList.remove('active')
-        sliderCityTel.querySelector('.n' + numb).classList.add('active')
-
-        sliderApartmentTel.querySelector('.active').classList.remove('active')
-        sliderApartmentTel.querySelector('.n' + numb).classList.add('active')
-
-        sliderTimeTel.querySelector('.active').classList.remove('active')
-        sliderTimeTel.querySelector('.n' + numb).classList.add('active')
-
-        sliderCostTel.querySelector('.active').classList.remove('active')
-        sliderCostTel.querySelector('.n' + numb).classList.add('active')
 
         sliderLink.querySelector('.active').classList.remove('active')
         sliderLink.querySelector('.n' + numb).classList.add('active')
