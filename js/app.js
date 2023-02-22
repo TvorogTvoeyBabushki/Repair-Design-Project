@@ -53,7 +53,7 @@ function initSlider() {
 
     function initImages() {
         images.forEach((image, index) => {
-            let elementImg = `<img class="projects__img n${index} ${index === 0 ? 'active' : ''}" src="./${image.src}" alt="Project" data-index="${index}">`
+            let elementImg = `<img class="projects__img n${index} ${index === 0 ? 'active' : ''}" src="/${image.src}" alt="Project" data-index="${index}">`
             sliderImages.innerHTML += elementImg
         })
     }
